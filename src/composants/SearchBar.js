@@ -1,33 +1,32 @@
-import React, { useState } from "react";
-import "./SearchBar.css";
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = ({ onSearch }) => {
-  const [term, setTerm] = useState("");
+const SearchContainer = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft: 'auto',
+});
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    onSearch(term);
+export default function SearchBar() {
+  const handleSearch = (event) => {
+    // Gérer la logique de recherche ici
+    const searchTerm = event.target.value;
+    console.log(searchTerm);
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSearch}>
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Recherchez un article"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-        />
-        <button type="submit" className="search-button">
-          Rechercher
-        </button>
-      </div>
-      <a href={`/recherche?term=${term}`} className="search-icon">
-        <i className="fa fa-search"></i>
-      </a>
-    </form>
+    <SearchContainer>
+      <TextField
+        placeholder="Rechercher..."
+        variant="outlined"
+        onChange={handleSearch}
+      />
+      <IconButton>
+        <SearchIcon />
+      </IconButton>
+    </SearchContainer>
   );
-};
-
-export default SearchBar;
+}
