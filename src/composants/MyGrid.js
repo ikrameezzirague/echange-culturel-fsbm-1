@@ -2,6 +2,7 @@ import React from "react";
 import "./MyGrid.css";
 
 const MyGrid = () => {
+  
   return (
 <div className="grid-container">
   <div className="grid-item small">

@@ -1,32 +1,24 @@
-import React from 'react';
-import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import Box from '@mui/material/Box';
+import InputAdornment from '@mui/material/InputAdornment';
 
-const SearchContainer = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  marginLeft: 'auto',
-});
-
-export default function SearchBar() {
-  const handleSearch = (event) => {
-    // Gérer la logique de recherche ici
-    const searchTerm = event.target.value;
-    console.log(searchTerm);
-  };
-
+const SearchBar = () => {
   return (
-    <SearchContainer>
+    <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
       <TextField
-        placeholder="Rechercher..."
+        id="search"
+        label="Recherche"
         variant="outlined"
-        onChange={handleSearch}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
-      <IconButton>
-        <SearchIcon />
-      </IconButton>
-    </SearchContainer>
+    </Box>
   );
-}
+};
+export default SearchBar;

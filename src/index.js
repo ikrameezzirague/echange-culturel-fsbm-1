@@ -10,7 +10,7 @@ import {
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import FsbmEnChiffre from './pages/FsbmEnChiffre';
-import events from './pages/events';
+import EventList from './pages/EventList';
 
 const router = createBrowserRouter([
   {
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
     element: <FsbmEnChiffre/>,
   },
   {
-    path: "events",
-    element: <events/>,
+    path: "EventList",
+    element: <EventList/>,
   },
  
 ]);

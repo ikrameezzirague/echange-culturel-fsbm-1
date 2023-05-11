@@ -5,21 +5,15 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import logo_Fsbm from './../images/logo_FSBM.jpg';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Button from '@mui/material-next/Button';
-import { blue } from '@mui/material/colors';
-import SearchBar from './composants/SearchBar';
-import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
-import MyGrid from './composants/MyGrid';
-
-
-
+import Carousel from '../composants/Carousel';
+import Events from '../composants/Events';
 
 
 const drawerWidth = 240;
@@ -85,7 +79,7 @@ export default function PersistentDrawerLeft() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -96,20 +90,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-          <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 0 }}>
-      <li>
-      <a href="/EventList">
-        évènements </a>
-        <a href="/Login">
-          <button className="login-btn">Login</button>
-        </a>
-      </li>
-      <li>
-        <a href="/SignUp">
-          <button className="signup-btn">Sign-up</button>
-        </a>
-      </li>
-    </ul>
+           Evénements
           </Typography>
         </Toolbar>
       </AppBar>
@@ -145,47 +126,19 @@ export default function PersistentDrawerLeft() {
           
         </ul>
         <Divider />
-       
       </Drawer>
       <Main open={open}>
-      <DrawerHeader>
-  <IconButton onClick={handleDrawerClose}>
-    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-  </IconButton>
-</DrawerHeader>
+        <DrawerHeader />
+        <Typography >
+        <div>
+      <Events/>
+      </div>
+        </Typography>
+        <br></br>
+        <Typography >
+       
 
-<Divider />
-
-<SearchBar />
-<Divider />
-
-
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
-        Fsbm En Chiffre
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
-        Partenaire Académique
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
-        Partenaire industriel
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/masters-maroc">
-        Masters Maroc
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
-        associations
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
-        Clubs
-      </Button>
-      <div>
-      <MyGrid/>
-    </div>
-    </div>
-    
-    </div>
+        </Typography>
       </Main>
     </Box>
   );
