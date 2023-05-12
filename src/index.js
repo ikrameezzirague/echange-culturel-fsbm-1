@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import FsbmEnChiffre from './pages/FsbmEnChiffre';
 import EventList from './pages/EventList';
+import MasterMaroc from './pages/MasterMaroc';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     element: <EventList/>,
   },
  
+  {
+    path: "MasterMaroc",
+    element: <MasterMaroc/>,
+  },
 ]);
 
 

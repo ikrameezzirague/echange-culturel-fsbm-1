@@ -5,14 +5,14 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import logo_Fsbm from './../images/logo_FSBM.jpg';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Carousel from '../composants/Carousel';
+import Master from '../composants/Master';
+
 
 
 const drawerWidth = 240;
@@ -89,7 +89,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            FSBM en chiffre
+           Masters Maroc
           </Typography>
         </Toolbar>
       </AppBar>
@@ -129,18 +129,12 @@ export default function PersistentDrawerLeft() {
       <Main open={open}>
         <DrawerHeader />
         <Typography >
-        <div>
-      <Box display="flex" justifyContent="center">
-        <img src={logo_Fsbm} alt="Logo FSBM" />
-      </Box>
-      </div>
+      <Master/>
+      
         </Typography>
         <br></br>
         <Typography >
-        <div>
-      
-      <Carousel />
-    </div>
+    
 
         </Typography>
       </Main>

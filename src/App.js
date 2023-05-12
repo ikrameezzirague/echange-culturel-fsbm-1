@@ -22,6 +22,7 @@ import MyGrid from './composants/MyGrid';
 
 
 
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -135,7 +136,7 @@ export default function PersistentDrawerLeft() {
         <ul>
           <li><a href="/">Accueil</a></li>
           <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
-          <li><a href="./Masters Maro">Masters Maroc</a></li>
+          <li><a href="MasterMaroc">Masters Maroc</a></li>
           <li><a href="EventList">évènements</a></li>
           <li><a href="./Clubs">Clubs</a></li>
           <li><a href="./Partenaires industrueles">Partenaires industrueles</a></li>
@@ -171,7 +172,7 @@ export default function PersistentDrawerLeft() {
       <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
         Partenaire industriel
       </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/masters-maroc">
+      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
         Masters Maroc
       </Button>
       <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">

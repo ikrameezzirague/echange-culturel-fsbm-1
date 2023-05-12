@@ -116,7 +116,7 @@ export default function PersistentDrawerLeft() {
         <ul>
           <li><a href="/">Accueil</a></li>
           <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
-          <li><a href="./Masters Maro">Masters Maroc</a></li>
+          <li><a href="MasterMaroc">Masters Maroc</a></li>
           <li><a href="EventList">évènements</a></li>
           <li><a href="./Clubs">Clubs</a></li>
           <li><a href="./Partenaires industrueles">Partenaires industrueles</a></li>
