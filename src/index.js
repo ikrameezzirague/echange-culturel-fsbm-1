@@ -38,7 +38,11 @@ const router = createBrowserRouter([
   {
     path: "MasterMaroc",
     element: <MasterMaroc/>,
-  },
+   },
+  // {
+  //   path: "établissements-uh2c",
+  //   element: <établissements_uh2c/>,
+  // },
 ]);
 
 

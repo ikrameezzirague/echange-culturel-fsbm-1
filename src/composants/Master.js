@@ -1,114 +1,41 @@
-import React from 'react';
-import './Master.css';
+import React, { useState } from 'react';
+import Logo_UHIIC from './../univesités/Logo_UHIIC.png';
+import UABMST from './../univesités/UABMST.png';
+import UBNTK from './../univesités/UBNTK.png';
+import UCAM from './../univesités/UCAM.png';
+import UCDJ from './../univesités/UCDJ.png';
+import UHIS from './../univesités/UHIS.png';
+import UIBZA from './../univesités/UIBZA.jpeg';
+import UMIM from './../univesités/UMIM.png';
+import UMIO from './../univesités/UMIO.png';
+import UMVR from './../univesités/UMVR.png';
+import USMBAF from './../univesités/USMBAF.png';
+import UMYS from './../univesités/UMYS.jpeg';
+import établissements_uh2c from './établissements_uh2c.js';
 
-function handleClick(image) {
-  console.log(`You clicked ${image}`);
-}
+import './Master.css'
 
-function Layout() {
-  const images = [
-    "https://picsum.photos/id/237/200/300",
-    "https://picsum.photos/id/238/200/300",
-    "https://picsum.photos/id/239/200/300",
-    "https://picsum.photos/id/240/200/300",
-    "https://picsum.photos/id/241/200/300",
-    "https://picsum.photos/id/242/200/300",
-    "https://picsum.photos/id/243/200/300",
-    "https://picsum.photos/id/244/200/300",
-    "https://picsum.photos/id/245/200/300",
-    "https://picsum.photos/id/246/200/300",
-    "https://picsum.photos/id/247/200/300",
-    "https://picsum.photos/id/248/200/300"
-  ];
+function App() {
+  
 
   return (
-    <div className="layout">
+    <div className="App">
       <div className="image-container">
-        <img
-          src={images[0]}
-          alt="Image 1"
-          onClick={() => handleClick(images[0])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[1]}
-          alt="Image 2"
-          onClick={() => handleClick(images[1])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[2]}
-          alt="Image 3"
-          onClick={() => handleClick(images[2])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[3]}
-          alt="Image 4"
-          onClick={() => handleClick(images[3])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[4]}
-          alt="Image 5"
-          onClick={() => handleClick(images[4])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[5]}
-          alt="Image 6"
-          onClick={() => handleClick(images[5])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[6]}
-          alt="Image 7"
-          onClick={() => handleClick(images[6])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[7]}
-          alt="Image 8"
-          onClick={() => handleClick(images[7])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[8]}
-          alt="Image 9"
-          onClick={() => handleClick(images[8])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[9]}
-          alt="Image 10"
-          onClick={() => handleClick(images[9])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[10]}
-          alt="Image 11"
-          onClick={() => handleClick(images[10])}
-        />
-      </div>
-      <div className="image-container">
-        <img
-          src={images[11]}
-          alt="Image 12"
-          onClick={() => handleClick(images[11])}
-        />
+        <a href=""><img src={Logo_UHIIC} alt="" /></a>
+        <a href=""><img src={UABMST} alt="Université 3" /></a>
+        <a href="https://example.com/page4"><img src={UBNTK} alt="Université 4" /></a>
+        <a href="https://example.com/page5"><img src={UCAM} alt="Université 5" /></a>
+        <a href="https://example.com/page6"><img src={UCDJ} alt="Université 6" /></a>
+        <a href="https://example.com/page7"><img src={UHIS} alt="Université 7" /></a>
+        <a href="https://example.com/page8"><img src={UIBZA} alt="Université 8"/></a>
+        <a href="https://example.com/page9"><img src={UMIM} alt="Université 9" /></a>
+        <a href="https://example.com/page10"><img src={UMIO} alt="Université 10" /></a>
+        <a href="https://example.com/page11"><img src={UMVR} alt="Université 11"/></a>
+        <a href="https://example.com/page12"><img src={USMBAF} alt="Université 12"/></a>
+        <a href="https://example.com/page13"><img src={UMYS} alt="Université 13"/></a>
       </div>
     </div>
   );
 }
 
-export default Layout;
+export default App;

@@ -17,6 +17,7 @@ import SearchBar from './composants/SearchBar';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import MyGrid from './composants/MyGrid';
+import './App.css';
 
 
 
@@ -97,8 +98,12 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-          <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 0 }}>
+          <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 0, color: 'white'}}>
       <li>
+      <a href="/Cv-thèque">
+       Cv-thèque </a>
+       <a href="/FAQ">
+       FAQ</a>
       <a href="/EventList">
         évènements </a>
         <a href="/Login">
@@ -133,7 +138,8 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <ul>
+    
+        <ul >
           <li><a href="/">Accueil</a></li>
           <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
           <li><a href="MasterMaroc">Masters Maroc</a></li>
@@ -143,8 +149,8 @@ export default function PersistentDrawerLeft() {
           <li><a href="./Partenaires Académiques">Partenaires Académiques</a></li>
           <li><a href="./CV-Thèque">CV-Thèque</a></li>
           <li><a href="./FAQ">FAQ</a></li>
-          
         </ul>
+        
         <Divider />
        
       </Drawer>
@@ -182,6 +188,7 @@ export default function PersistentDrawerLeft() {
         Clubs
       </Button>
       <div>
+      <MyGrid/>
       <MyGrid/>
     </div>
     </div>
