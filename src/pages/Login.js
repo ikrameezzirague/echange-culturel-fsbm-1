@@ -32,10 +32,20 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    let formData = JSON.stringify({
       email: data.get('email'),
       password: data.get('password'),
-    });
+    })
+    console.log(formData);
+
+    fetch('http://127.0.0.1:5000/login', {
+        method: "POST",
+        body: formData,
+        
+    })
+    .then(response => {
+      console.log(response.json())
+    })
   };
 
   return (

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import dayjs from 'dayjs';
+import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
+import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker';
+import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 import './Events.css';
-
 
 const Event = ({ date, title, description, location, onConfirm }) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -38,23 +45,21 @@ const EventList = () => {
     {
       id: 1,
       title: 'Conférences',
-      description:
-        'Intelligence artificielle',
+      description: 'Intelligence artificielle',
       date: new Date('2023-09-15'),
       location: 'Amphi8',
     },
     {
       id: 2,
       title: 'Journée portes ouvertes',
-      description:'soyer là où il faut être',
+      description: 'soyer là où il faut être',
       date: new Date('2023-10-01'),
       location: 'Amphi8',
     },
     {
       id: 3,
       title: 'Caravanes de recrutements',
-      description:
-        'Rencontrer votre recruteur',
+      description: 'Rencontrer votre recruteur',
       date: new Date('2023-10-15'),
       location: 'Bibliothèque',
     },
@@ -86,4 +91,39 @@ const EventList = () => {
   );
 };
 
-export default EventList;
+const CombinedComponent = () => {
+  return (
+    <div className="combined-container">
+      <div className="left-container">
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer
+            components={[
+              'DateTimePicker',
+              'MobileDateTimePicker',
+              'DesktopDateTimePicker',
+              'StaticDateTimePicker',
+            ]}
+          >
+            {/* <DemoItem label="Desktop variant">
+              <DesktopDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
+            </DemoItem>
+            <DemoItem label="Mobile variant">
+              <MobileDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
+            </DemoItem>
+            <DemoItem label="Responsive variant">
+              <DateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
+            </DemoItem> */}
+            <DemoItem label="Static variant">
+              <StaticDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
+            </DemoItem>
+          </DemoContainer>
+        </LocalizationProvider>
+      </div>
+      <div className="right-container">
+        <EventList />
+      </div>
+    </div>
+  );
+};
+
+export default CombinedComponent;

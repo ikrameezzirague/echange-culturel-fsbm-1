@@ -138,7 +138,7 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-    
+    <div className='menuplat'>
         <ul >
           <li><a href="/">Accueil</a></li>
           <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
@@ -150,50 +150,51 @@ export default function PersistentDrawerLeft() {
           <li><a href="./CV-Thèque">CV-Thèque</a></li>
           <li><a href="./FAQ">FAQ</a></li>
         </ul>
+    </div>  
         
-        <Divider />
        
       </Drawer>
       <Main open={open}>
-      <DrawerHeader>
-  <IconButton onClick={handleDrawerClose}>
-    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-  </IconButton>
-</DrawerHeader>
+        <DrawerHeader>
+        <IconButton onClick={handleDrawerClose}>
+        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        </IconButton>
+        </DrawerHeader>
 
-<Divider />
+        
 
-<SearchBar />
-<Divider />
+        <SearchBar />
+        <h1>Boostez votre carrière</h1>
+        
 
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
-        Fsbm En Chiffre
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
-        Partenaire Académique
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
-        Partenaire industriel
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
-        Masters Maroc
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
-        associations
-      </Button>
-      <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
-        Clubs
-      </Button>
-      <div>
-      <MyGrid/>
-      <MyGrid/>
-    </div>
-    </div>
-    
-    </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
+          Fsbm En Chiffre
+        </Button>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
+          Partenaire Académique
+        </Button>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
+          Partenaire industriel
+        </Button>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
+          Masters Maroc
+        </Button>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
+          associations
+        </Button>
+        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
+          Clubs
+        </Button>
+        <div>
+        <MyGrid/>
+        <MyGrid/>
+        </div>
+        </div>
+
+        </div>
       </Main>
     </Box>
   );
