@@ -22,7 +22,7 @@ import Events from './composants/Events';
 
 import './App.css';
 
-// <Navbar/>
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
