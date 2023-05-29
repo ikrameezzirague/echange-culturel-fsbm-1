@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import Navbar from './composants/Navbar';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -17,13 +18,11 @@ import SearchBar from './composants/SearchBar';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import MyGrid from './composants/MyGrid';
+import Events from './composants/Events';
+
 import './App.css';
 
-
-
-
-
-
+// <Navbar/>
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -44,23 +43,6 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -86,47 +68,12 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-          <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 0, color: 'white'}}>
-      <li>
-      <a href="/Cv-thèque">
-       Cv-thèque </a>
-       <a href="/FAQ">
-       FAQ</a>
-      <a href="/EventList">
-        évènements </a>
-        <a href="/Login">
-          <button className="login-btn">Login</button>
-        </a>
-      </li>
-      <li>
-        <a href="/SignUp">
-          <button className="signup-btn">Sign-up</button>
-        </a>
-      </li>
-    </ul>
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      {/* <Navbar/> */}
       <Drawer
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
+          ...(open && { width: drawerWidth }),
         }}
         variant="persistent"
         anchor="left"
@@ -138,62 +85,37 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-    <div className='menuplat'>
-        <ul >
-          <li><a href="/">Accueil</a></li>
-          <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
-          <li><a href="MasterMaroc">Masters Maroc</a></li>
-          <li><a href="EventList">évènements</a></li>
-          <li><a href="./Clubs">Clubs</a></li>
-          <li><a href="./Partenaires industrueles">Partenaires industrueles</a></li>
-          <li><a href="./Partenaires Académiques">Partenaires Académiques</a></li>
-          <li><a href="./CV-Thèque">CV-Thèque</a></li>
-          <li><a href="./FAQ">FAQ</a></li>
-        </ul>
-    </div>  
-        
-       
+        {/* Add your drawer content here */}
       </Drawer>
+
       <Main open={open}>
-        <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-        </IconButton>
-        </DrawerHeader>
-
-        
-
-        <SearchBar />
-        <h1>Boostez votre carrière</h1>
-        
-
-
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <div>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
-          Fsbm En Chiffre
-        </Button>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
-          Partenaire Académique
-        </Button>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
-          Partenaire industriel
-        </Button>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
-          Masters Maroc
-        </Button>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
-          associations
-        </Button>
-        <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
-          Clubs
-        </Button>
-        <div>
-        <MyGrid/>
-        <MyGrid/>
-        </div>
-        </div>
-
+          <div>
+            <SearchBar />
+            <h1>Boostez votre carrière</h1>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
+              Fsbm En Chiffre
+            </Button>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
+              Partenaire Académique
+            </Button>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
+              Partenaire industriel
+            </Button>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
+              Masters Maroc
+            </Button>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
+              associations
+            </Button>
+            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
+              Clubs
+            </Button>
+            <div>
+              <MyGrid />
+              <MyGrid />
+            </div>
+          </div>
         </div>
       </Main>
     </Box>

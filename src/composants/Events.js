@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
-import dayjs from 'dayjs';
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
-import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker';
-import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
 import './Events.css';
 
-const Event = ({ date, title, description, location, onConfirm }) => {
-  const [isConfirmed, setIsConfirmed] = useState(false);
 
+const Event = ({ date, title, description, location, isConfirmed, onConfirm }) => {
   const handleConfirm = () => {
-    setIsConfirmed(true);
     onConfirm();
   };
 
   return (
-    <div className="event">
+    <div className={`event ${isConfirmed ? 'event-confirmed' : ''}`}>
       <div className="event-details">
         <h3 className="event-title">{title}</h3>
         <div className="event-info">
@@ -40,7 +30,7 @@ const Event = ({ date, title, description, location, onConfirm }) => {
   );
 };
 
-const EventList = () => {
+const CombinedComponent = () => {
   const [events, setEvents] = useState([
     {
       id: 1,
@@ -48,20 +38,39 @@ const EventList = () => {
       description: 'Intelligence artificielle',
       date: new Date('2023-09-15'),
       location: 'Amphi8',
+      isConfirmed: false,
     },
     {
       id: 2,
       title: 'Journée portes ouvertes',
-      description: 'soyer là où il faut être',
+      description: 'Soyez là où il faut être',
       date: new Date('2023-10-01'),
       location: 'Amphi8',
+      isConfirmed: false,
     },
     {
       id: 3,
       title: 'Caravanes de recrutements',
-      description: 'Rencontrer votre recruteur',
+      description: 'Rencontrez votre recruteur',
       date: new Date('2023-10-15'),
       location: 'Bibliothèque',
+      isConfirmed: false,
+    },
+    {
+      id: 4,
+      title: 'Atelier de programmation',
+      description: 'Introduction à Python',
+      date: new Date('2023-11-05'),
+      location: 'Salle informatique',
+      isConfirmed: false,
+    },
+    {
+      id: 5,
+      title: 'Hackathon',
+      description: 'Développement d\'une application web',
+      date: new Date('2023-11-18'),
+      location: 'Labo informatique',
+      isConfirmed: false,
     },
   ]);
 
@@ -76,51 +85,21 @@ const EventList = () => {
   };
 
   return (
-    <div className="event-list">
-      {events.map((event) => (
-        <Event
-          key={event.id}
-          title={event.title}
-          description={event.description}
-          date={event.date}
-          location={event.location}
-          onConfirm={() => handleConfirm(event.id)}
-        />
-      ))}
-    </div>
-  );
-};
-
-const CombinedComponent = () => {
-  return (
     <div className="combined-container">
-      <div className="left-container">
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer
-            components={[
-              'DateTimePicker',
-              'MobileDateTimePicker',
-              'DesktopDateTimePicker',
-              'StaticDateTimePicker',
-            ]}
-          >
-            {/* <DemoItem label="Desktop variant">
-              <DesktopDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
-            </DemoItem>
-            <DemoItem label="Mobile variant">
-              <MobileDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
-            </DemoItem>
-            <DemoItem label="Responsive variant">
-              <DateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
-            </DemoItem> */}
-            <DemoItem label="Static variant">
-              <StaticDateTimePicker defaultValue={dayjs('2022-04-17T15:30')} />
-            </DemoItem>
-          </DemoContainer>
-        </LocalizationProvider>
-      </div>
-      <div className="right-container">
-        <EventList />
+   
+      <div className="event-list">
+        {events.map((event, index) => (
+          <Event
+            key={event.id}
+            title={event.title}
+            description={event.description}
+            date={event.date}
+            location={event.location}
+            isConfirmed={event.isConfirmed}
+            onConfirm={() => handleConfirm(event.id)}
+            className={index % 2 === 0 ? 'event-left' : 'event-right'}
+          />
+        ))}
       </div>
     </div>
   );
