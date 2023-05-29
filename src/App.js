@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import Navbar from './composants/Navbar';
+
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
