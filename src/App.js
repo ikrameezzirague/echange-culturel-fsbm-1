@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { HashRouter, NavLink, Route, Routes} from 'react-router-dom';
 
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -19,9 +20,16 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import MyGrid from './composants/MyGrid';
 import Events from './composants/Events';
+import EventList from './pages/EventList';
+import Navbar from './composants/Navbar';
+import FsbmEnChiffre from './pages/FsbmEnChiffre';
+//import PartenaireAcademique from './composants/PartenaireAcademique';
+//import PartenaireIndustriel from './composants/PartenaireIndustriel';
+import MasterMaroc from './pages/MasterMaroc';
+//import Associations from './composants/Associations';
+//import Clubs from './composants/Clubs';
 
 import './App.css';
-
 
 const drawerWidth = 240;
 
@@ -64,60 +72,79 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      {/* <Navbar/> */}
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          ...(open && { width: drawerWidth }),
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        {/* Add your drawer content here */}
-      </Drawer>
-
-      <Main open={open}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <div>
-            <SearchBar />
-            <h1>Boostez votre carrière</h1>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="FsbmEnChiffre">
-              Fsbm En Chiffre
-            </Button>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-academique">
-              Partenaire Académique
-            </Button>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/partenaire-industriel">
-              Partenaire industriel
-            </Button>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="MasterMaroc">
-              Masters Maroc
-            </Button>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/associations">
-              associations
-            </Button>
-            <Button variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }} href="/clubs">
-              Clubs
-            </Button>
+    <HashRouter>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <Navbar/>
+        <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            ...(open && { width: drawerWidth }),
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          {/* Add your drawer content here */}
+        </Drawer>
+ 
+        <Main open={open}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <div>
-              <MyGrid />
-              <MyGrid />
+              <NavLink exact to="/" style={{ textDecoration: 'none' }}>
+                <Typography variant="h6" color="inherit" noWrap>
+                  Mon application
+                </Typography>
+              </NavLink>
+              <SearchBar />
+              <h1>Boostez votre carrière</h1>
+              <Button component={NavLink} to="/FsbmEnChiffre" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                Fsbm En Chiffre
+              </Button>
+              <Button component={NavLink} to="/partenaire-academique" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                Partenaire Académique
+              </Button>
+              <Button component={NavLink} to="/partenaire-industriel" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                Partenaire industriel
+              </Button>
+              <Button component={NavLink} to="/MasterMaroc" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                Masters Maroc
+              </Button>
+              <Button component={NavLink} to="/associations" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                associations
+              </Button>
+              <Button component={NavLink} to="/clubs" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+                Clubs
+              </Button>
+              <div>
+                <MyGrid />
+                <MyGrid />
+              </div>
             </div>
           </div>
-        </div>
-      </Main>
+        </Main>
+     
+    
+      {/* Add your routes here */}
+      <Route exact path="/EventList" component={EventList} />
+     
+      {/* <Route path="/FsbmEnChiffre" component={FsbmEnChiffre} />
+     <Route path="/partenaire-academique" component={PartenaireAcademique} />
+      <Route path="/partenaire-industriel" component={PartenaireIndustriel} />
+      <Route path="/MasterMaroc" component={MasterMaroc} />
+      <Route path="/associations" component={Associations} />
+      <Route path="/clubs" component={Clubs} />*/}
     </Box>
+    </HashRouter>
+  
   );
 }
