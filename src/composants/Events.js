@@ -9,6 +9,7 @@ const Event = ({ date, title, description, location, isConfirmed, onConfirm }) =
 
   return (
     <div className={`event ${isConfirmed ? 'event-confirmed' : ''}`}>
+
       <div className="event-details">
         <h3 className="event-title">{title}</h3>
         <div className="event-info">

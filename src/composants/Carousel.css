@@ -1,61 +1,18 @@
-/* Carousel.css */
-
-.carousel-container {
+.CarouselButtons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-}
-
-.carousel-paper {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  padding-left: 16px;
-  background-color: #f5f5f5;
-}
-
-.carousel-title {
-  font-weight: bold;
-}
-
-.carousel-content {
-  padding: 16px;
-  text-align: center;
-}
-
-.carousel-mobile-stepper {
   justify-content: space-between;
-  background-color: #f5f5f5;
+  align-items: center;
 }
 
-.carousel-button {
-  color: #fff;
-  background-color: #2196f3;
-}
-
-.carousel-button:hover {
-  background-color: #1976d2;
-}
-
-.carousel-arrow {
-  color: #2196f3;
-}
-
-.carousel-dots {
+.CarouselButton {
   display: flex;
-  justify-content: center;
-  margin-top: 16px;
+  align-items: center;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin: 0 4px;
-  background-color: #bdbdbd;
-}
-
-.carousel-dot.active {
-  background-color: #2196f3;
+.CarouselButtonIcon {
+  margin-right: 4px;
 }

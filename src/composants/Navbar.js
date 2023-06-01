@@ -13,6 +13,11 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Button from '@mui/material-next/Button';
 import { blue } from '@mui/material/colors';
+import CvTheque from '../pages/CvTheque';
+import FAQ from '../pages/FAQ';
+import partenaireIndustriel from '../pages/partenaireIndustriel';
+import partenaireAcademique from '../pages/partenaireAcademique';
+
 
 const drawerWidth = 240;
 
@@ -90,7 +95,7 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap component="div">
             <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 0, color: 'white' }}>
               <li>
-                <a href="/Cv-thèque">Cv-thèque</a>
+                <a href="/CvTheque">Cv-thèque</a>
                 <a href="/FAQ">FAQ</a>
                 <a href="/EventList">évènements</a>
                 <a href="/Login"><button className="login-btn">Login</button></a>
@@ -127,11 +132,12 @@ export default function PersistentDrawerLeft() {
             <li><a href="FsbmEnChiffre">Fsbm En Chiffre</a></li>
             <li><a href="MasterMaroc">Masters Maroc</a></li>
             <li><a href="EventList">évènements</a></li>
-            <li><a href="./Clubs">Clubs</a></li>
-            <li><a href="./Partenaires industrueles">Partenaires industrueles</a></li>
-            <li><a href="./Partenaires Académiques">Partenaires Académiques</a></li>
-            <li><a href="./CV-Thèque">CV-Thèque</a></li>
-            <li><a href="./FAQ">FAQ</a></li>
+            <li><a href="clubs">Clubs</a></li>
+            <li><a href="partenaireIndustriel">Partenaires industrueles</a></li>
+            <li><a href="partenaireAcademique">Partenaires Académiques</a></li>
+            <li><a href="./CvTheque">CV-Thèque</a></li>
+            <li><a href="FAQ">FAQ</a></li>
+            <li><a href="Associations">Associations</a></li>
           </ul>
         </div>
       </Drawer>

@@ -12,12 +12,14 @@ import UMVR from './../univesités/UMVR.png';
 import USMBAF from './../univesités/USMBAF.png';
 import UMYS from './../univesités/UMYS.jpeg';
 import établissements_uh2c from './établissements_uh2c.js';
+import Navbar from '../composants/Navbar';
 
 import './Master.css'
 
 function App() {
   return (
     <div className="App">
+       <Navbar />
       <div className="image-container">
         <a href="#"><img src={Logo_UHIIC} alt="Logo UHIIC" /></a>
         <a href="#"><img src={UABMST} alt="Université 2" /></a>

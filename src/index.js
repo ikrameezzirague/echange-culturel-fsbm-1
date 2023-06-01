@@ -12,7 +12,12 @@ import SignUp from './pages/SignUp';
 import FsbmEnChiffre from './pages/FsbmEnChiffre';
 import EventList from './pages/EventList';
 import MasterMaroc from './pages/MasterMaroc';
-
+import CvTheque from './pages/CvTheque';
+import FAQ from './pages/FAQ';
+import partenaireIndustriel from './pages/partenaireIndustriel';
+import partenaireAcademique from './pages/partenaireAcademique';
+import Clubs from './pages/clubs';
+import Associations from './pages/Associations';
 const router = createBrowserRouter([
   {
     path: "login",
@@ -38,6 +43,30 @@ const router = createBrowserRouter([
   {
     path: "MasterMaroc",
     element: <MasterMaroc/>,
+   },
+   {
+    path: "CvTheque",
+    element: <CvTheque/>,
+   },
+   {
+    path: "FAQ",
+    element: <FAQ/>,
+   },
+   {
+    path: "partenaireAcademique",
+    element: <partenaireAcademique/>,
+   },
+   {
+    path: "partenaireIndustriel",
+    element: <partenaireIndustriel/>,
+   },
+   {
+    path: "Clubs",
+    element: <Clubs/>,
+   },
+   {
+    path: "Associations",
+    element: <Associations/>,
    },
   // {
   //   path: "établissements-uh2c",

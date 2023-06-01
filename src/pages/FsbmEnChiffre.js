@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import logo_Fsbm from './../images/logo_FSBM.jpg';
 import Typography from '@mui/material/Typography';
 import Carousel from '../composants/Carousel';
+import Navbar from '../composants/Navbar';
 
 const drawerWidth = 240;
 
@@ -39,8 +40,11 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
+    
     <Box sx={{ display: 'flex' }}>
+      
       <CssBaseline />
+      <Navbar />
       <Main open={open}>
         <Typography>
           <div>

@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Master from '../composants/Master';
 
+
 const Main = styled('main')({
   flexGrow: 1,
   padding: theme => theme.spacing(3),
@@ -13,7 +14,11 @@ const Main = styled('main')({
 export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: 'flex' }}>
+     
       <CssBaseline />
+      
+       {/* Import the Navbar component here */}
+      
       <Main>
         <Typography>
           <Master />

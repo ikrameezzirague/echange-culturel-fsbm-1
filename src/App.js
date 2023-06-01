@@ -105,7 +105,7 @@ export default function PersistentDrawerLeft() {
                 </Typography>
               </NavLink>
               <SearchBar />
-              <h1>Boostez votre carrière</h1>
+              <h1 className="boostez-carriere">Boostez votre carrière</h1>
               <Button component={NavLink} to="/FsbmEnChiffre" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
                 Fsbm En Chiffre
               </Button>
@@ -126,7 +126,7 @@ export default function PersistentDrawerLeft() {
               </Button>
               <div>
                 <MyGrid />
-                <MyGrid />
+        
               </div>
             </div>
           </div>

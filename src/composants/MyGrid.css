@@ -1,18 +1,24 @@
-.grid-item {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-right: 20px;
-  margin-bottom: 20px;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.grid-item.small {
-  width: 250px;
-  height: 200px;
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.grid-item img {
+  width: 150px;
+  height: 150px;
 }
 
 .grid-item:hover {
@@ -22,13 +28,4 @@
 
 .space {
   width: 20px;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
-  justify-content: center;
 }
