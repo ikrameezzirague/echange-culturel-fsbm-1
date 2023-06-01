@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashRouter, NavLink, Route, Routes} from 'react-router-dom';
+import { HashRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -32,24 +32,22 @@ import './App.css';
 
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
+  flexGrow: 1,
+  padding: theme.spacing(3),
+  transition: theme.transitions.create('margin', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
   }),
-);
+  marginLeft: `-${drawerWidth}px`,
+  ...(open && {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  }),
+}));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -71,79 +69,66 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
   return (
-  
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <Navbar/>
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            ...(open && { width: drawerWidth }),
-          }}
-          variant="persistent"
-          anchor="left"
-          open={open}
-        >
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          {/* Add your drawer content here */}
-        </Drawer>
- 
-        <Main open={open}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <Navbar />
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          ...(open && { width: drawerWidth }),
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        {/* Add your drawer content here */}
+      </Drawer>
+
+      <Main open={open}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <div>
+            <SearchBar />
+            <Typography variant="h6" color="inherit" noWrap>
+              Mon application
+            </Typography>
+            <h1 className="boostez-carriere">La voie vers l'insertion professionnelle</h1>
+            <div style={{ marginBottom: '16px' }}>
+            <Button component={NavLink} to="/FsbmEnChiffre" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  Fsbm En Chiffre
+</Button>
+<Button component={NavLink} to="/partenaireAcademique" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  Partenaire Académique
+</Button>
+<Button component={NavLink} to="/partenaireIndustriel" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  Partenaire industriel
+</Button>
+<Button component={NavLink} to="/MasterMaroc" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  Masters Maroc
+</Button>
+<Button component={NavLink} to="/associations" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  associations
+</Button>
+<Button component={NavLink} to="/clubs" variant="contained" color="primary" sx={{ bgcolor: "#1D419F", color: "#000000", m: 1 }}>
+  Clubs
+</Button>
+
+
+            </div>
             <div>
-              <NavLink exact to="/" style={{ textDecoration: 'none' }}>
-                <Typography variant="h6" color="inherit" noWrap>
-                  Mon application
-                </Typography>
-              </NavLink>
-              <SearchBar />
-              <h1 className="boostez-carriere">Boostez votre carrière</h1>
-              <Button component={NavLink} to="/FsbmEnChiffre" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                Fsbm En Chiffre
-              </Button>
-              <Button component={NavLink} to="/partenaireAcademique" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                Partenaire Académique
-              </Button>
-              <Button component={NavLink} to="/partenaireIndustriel" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                Partenaire industriel
-              </Button>
-              <Button component={NavLink} to="/MasterMaroc" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                Masters Maroc
-              </Button>
-              <Button component={NavLink} to="/associations" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                associations
-              </Button>
-              <Button component={NavLink} to="/clubs" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
-                Clubs
-              </Button>
-              <div>
-                <MyGrid />
-        
-              </div>
+              <MyGrid />
             </div>
           </div>
-        </Main>
-     
-    {/*<Routes>
-      
-      <Route exact path="/EventList" component={EventList} />
-     
-      <Route path="/FsbmEnChiffre" component={FsbmEnChiffre} />
-     <Route path="/partenaireAcademique" component={PartenaireAcademique} />
-      <Route path="/partenaireIndustriel" component={PartenaireIndustriel} />
-      <Route path="/MasterMaroc" component={MasterMaroc} />
-       <Route path="/associations" component={Associations} />
-      <Route path="/clubs" component={Clubs} /></Routes>*/}
+        </div>
+      </Main>
     </Box>
-
-  
   );
 }
