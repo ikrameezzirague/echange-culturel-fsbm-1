@@ -23,12 +23,11 @@ import Events from './composants/Events';
 import EventList from './pages/EventList';
 import Navbar from './composants/Navbar';
 import FsbmEnChiffre from './pages/FsbmEnChiffre';
-//import PartenaireAcademique from './composants/PartenaireAcademique';
-//import PartenaireIndustriel from './composants/PartenaireIndustriel';
 import MasterMaroc from './pages/MasterMaroc';
 //import Associations from './composants/Associations';
-//import Clubs from './composants/Clubs';
-
+import Clubs from './pages/clubs';
+import partenaireIndustriel from './pages/partenaireIndustriel';
+import partenaireAcademique from './pages/partenaireAcademique';
 import './App.css';
 
 const drawerWidth = 240;
@@ -74,7 +73,7 @@ export default function PersistentDrawerLeft() {
   };
   
   return (
-    <HashRouter>
+  
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <Navbar/>
@@ -110,10 +109,10 @@ export default function PersistentDrawerLeft() {
               <Button component={NavLink} to="/FsbmEnChiffre" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
                 Fsbm En Chiffre
               </Button>
-              <Button component={NavLink} to="/partenaire-academique" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+              <Button component={NavLink} to="/partenaireAcademique" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
                 Partenaire Académique
               </Button>
-              <Button component={NavLink} to="/partenaire-industriel" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
+              <Button component={NavLink} to="/partenaireIndustriel" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
                 Partenaire industriel
               </Button>
               <Button component={NavLink} to="/MasterMaroc" variant="contained" color="primary" sx={{ bgcolor: blue[500], m: 1 }}>
@@ -133,18 +132,18 @@ export default function PersistentDrawerLeft() {
           </div>
         </Main>
      
-    
-      {/* Add your routes here */}
+    {/*<Routes>
+      
       <Route exact path="/EventList" component={EventList} />
      
-      {/* <Route path="/FsbmEnChiffre" component={FsbmEnChiffre} />
-     <Route path="/partenaire-academique" component={PartenaireAcademique} />
-      <Route path="/partenaire-industriel" component={PartenaireIndustriel} />
+      <Route path="/FsbmEnChiffre" component={FsbmEnChiffre} />
+     <Route path="/partenaireAcademique" component={PartenaireAcademique} />
+      <Route path="/partenaireIndustriel" component={PartenaireIndustriel} />
       <Route path="/MasterMaroc" component={MasterMaroc} />
-      <Route path="/associations" component={Associations} />
-      <Route path="/clubs" component={Clubs} />*/}
+       <Route path="/associations" component={Associations} />
+      <Route path="/clubs" component={Clubs} /></Routes>*/}
     </Box>
-    </HashRouter>
+
   
   );
 }
