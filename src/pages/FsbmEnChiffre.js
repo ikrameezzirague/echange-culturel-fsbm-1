@@ -1,65 +1,107 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import logo_Fsbm from './../images/logo_FSBM.jpg';
-import Typography from '@mui/material/Typography';
-import Carousel from '../composants/Carousel';
+import React from 'react';
+import { makeStyles } from '@mui/styles';
+import { Box, Typography } from '@mui/material';
 import Navbar from '../composants/Navbar';
+import Carousel from '../composants/Carousel';
+import fsbm from '../composants/fsbm';
+import iconeEtudiants from './../icones/icôneétudiants.png';
+import iconeLaureats from './../icones/icônelauréats.jpg';
+import iconeLicence from './../icones/icônelicence.jpg';
+import iconeMaster from './../icones/icônemaster.jpg';
+import iconeProfs from './../icones/icôneprofs.jpg';
 
-const drawerWidth = 240;
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+  },
+  carousel: {
+    position: 'relative',
+    width: 600,
+    height: 400,
+    overflow: 'hidden',
+    marginBottom: 16,
+    '&:hover $caption': {
+      opacity: 1,
+    },
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
+  caption: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    padding: 8,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    color: 'white',
+    opacity: 0,
+    transition: 'opacity 0.3s ease',
+  },
+  buttonsContainer: {
+    display: 'flex',
+    gap: 460,
+  },
+}));
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  }),
-);
+const images = [
+  {
+    src: iconeEtudiants,
+    caption: 'Icône Étudiants',
+  },
+  {
+    src: iconeLaureats,
+    caption: 'Icône Laureats',
+  },
+  {
+    src: iconeLicence,
+    caption: 'Icône Licence',
+  },
+  {
+    src: iconeMaster,
+    caption: 'Icône Master',
+  },
+  {
+    src: iconeProfs,
+    caption: 'Icône Professeurs',
+  },
+];
 
-export default function PersistentDrawerLeft() {
-  const [open, setOpen] = React.useState(false);
+const CarouselComponent = () => {
+  const classes = useStyles();
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
-    
-    <Box sx={{ display: 'flex' }}>
-      
-      <CssBaseline />
-      <Navbar />
-      <Main open={open}>
-        <Typography>
-          <div>
-            <Box display="flex" justifyContent="center">
-              <img src={logo_Fsbm} alt="Logo FSBM" />
-            </Box>
-          </div>
+    <Box className={classes.root}>
+      <Navbar/>
+      <Carousel />
+      <fsbm/>
+      <div className={classes.carousel}>
+        <img src={images[activeIndex].src} alt={`Image ${activeIndex + 1}`} className={classes.image} />
+        <Typography variant="body1" className={classes.caption}>
+          {images[activeIndex].caption}
         </Typography>
-        <br></br>
-        <Typography>
-          <div>
-            <Carousel />
-          </div>
-        </Typography>
-      </Main>
+      </div>
+      <div className={classes.buttonsContainer}>
+        <button onClick={handlePrev}>Previous</button>
+        <button onClick={handleNext}>Next</button>
+      </div>
     </Box>
   );
-}
+};
+
+export default CarouselComponent;

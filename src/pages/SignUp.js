@@ -1,4 +1,7 @@
 import * as React from 'react';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,33 +16,41 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
-
-export default function SignUp() {
+function SignUp() {
+  const [role, setRole] = React.useState('');
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const formData = {
+      nom: data.get('firstName'),
+      prenom: data.get('lastName'),
+      role: role,
       email: data.get('email'),
-      password: data.get('password'),
+      password: data.get('password')
+    };
+
+    // Appeler l'API backend pour soumettre le formulaire
+    fetch('http://127.0.0.1:5000/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Traiter la réponse du backend (success ou error)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Traiter les erreurs
     });
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -80,6 +91,23 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
+                <InputLabel id="role-label">Role</InputLabel>
+                <Select
+                  labelId="role-label"
+                  id="role"
+                  value={role}
+                  label="Role"
+                  required
+                  fullWidth
+                  onChange={(event) => setRole(event.target.value)}
+                >
+                  <MenuItem value="admin">Administrator</MenuItem>
+                  <MenuItem value="student">Student</MenuItem>
+                  <MenuItem value="teacher">Teacher</MenuItem>
+                  <MenuItem value="club">Club</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -103,7 +131,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive events and articls via email."
+                  label="I want to receive events and articles via email."
                 />
               </Grid>
             </Grid>
@@ -118,7 +146,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="../Login" variant="body2">
-                  Already have an account? Sign in
+                  Already have an account? login
                 </Link>
               </Grid>
             </Grid>
@@ -128,3 +156,5 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+export default SignUp;

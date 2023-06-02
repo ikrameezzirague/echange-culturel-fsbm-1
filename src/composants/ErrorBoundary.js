@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTools } from 'react-icons/fa';
+//import construction from '../constructions/construction.jpg';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class ErrorBoundary extends React.Component {
           <h1 style={styles.title}>Page en cours de construction</h1>
           <p style={styles.text}>Nous travaillons sur cette page et elle sera bientôt disponible.</p>
           <p style={styles.text}>Merci de votre patience !</p>
+        
         </div>
       </div>
     );
@@ -42,7 +44,7 @@ const styles = {
   icon: {
     fontSize: '48px',
     marginBottom: '10px',
-    color: 'blue', // Couleur de l'icône
+    color: 'blue',
   },
   content: {
     display: 'flex',
@@ -53,8 +55,8 @@ const styles = {
     fontSize: '24px',
     fontWeight: 'bold',
     marginBottom: '10px',
-    color: 'red', // Couleur du titre
-    textAlign: 'left', // Aligner le texte à gauche
+    color: 'red',
+    textAlign: 'left',
   },
   text: {
     fontSize: '18px',
@@ -63,7 +65,12 @@ const styles = {
   errorContainer: {
     textAlign: 'center',
     marginTop: '20px',
-    color: 'red', // Couleur du texte d'erreur
+    color: 'red',
+  },
+  image: {
+    width: '300px', // Largeur de l'image
+    height: 'auto', // Hauteur automatique en conservant les proportions
+    marginTop: '20px',
   },
 };
 

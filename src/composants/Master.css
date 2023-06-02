@@ -1,33 +1,37 @@
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px;
+.image-table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.image-container img {
-  width: 150px;
-  height: 150px;
-  margin: 10px;
-  border-radius: 10px; /* ou supprimer cette propriété pour des angles droits */
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-
-.image-container img:hover {
-  transform: scale(1.1);
-}
-
-.selected-image {
-  margin: 20px;
+.image-wrapper {
+  border: 1px solid #ccc;
+  padding: 10px;
   text-align: center;
 }
 
-.selected-image h2 {
-  margin-bottom: 10px;
+.image-text {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold; /* Ajout d'une police en gras */
+  font-size: 14px; /* Ajustez la taille de police selon vos préférences */
+  color:#1D419F; /* Couleur de texte par défaut */
+  transition: color 0.3s, transform 0.3s; /* Transitions pour l'effet hover */
 }
 
-.selected-image img {
-  max-width: 100%;
-  height: auto;
+/* Ajoute un espace entre chaque groupe de 4 images */
+.image-table tr:nth-child(4n + 1) {
+  margin-bottom: 20px;
+}
+/* Master.css */
+
+.table-background {
+  background-color: #f2f2f2;
+}
+.image-description {
+  color: #0a0a0a; /* Couleur d'écriture en noir foncé */
+  transition: color 0.3s ease; /* Transition pour l'effet de hover */
+}
+
+.image-description:hover {
+  color: #1D419F; /* Couleur d'écriture en noir */
 }

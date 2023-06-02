@@ -17,6 +17,7 @@ import CvTheque from '../pages/CvTheque';
 import FAQ from '../pages/FAQ';
 import partenaireIndustriel from '../pages/partenaireIndustriel';
 import partenaireAcademique from '../pages/partenaireAcademique';
+import logopagee from './../icones/logopagee.png';
 
 
 const drawerWidth = 240;
