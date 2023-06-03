@@ -1,0 +1,83 @@
+/* Couleur de fond pour le corps de la page */
+body {
+    background-color: #f5f5f5;
+  }
+  
+  /* Titre principal */
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  /* Conteneur de la carte */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  /* Carte avec les statistiques */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 16px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  /* Titre pour la carte */
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  /* Nombre pour la carte */
+  .card-number {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Graphique */
+  .chart {
+    margin-top: 32px;
+    text-align: center;
+  }
+  
+  /* Légende pour le graphique */
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  /* Étiquette pour la légende */
+  .legend-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 16px;
+  }
+  
+  /* Couleur pour la légende */
+  .legend-color {
+    height: 14px;
+    width: 14px;
+    margin-right: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  /* Couleurs pour les séries de données */
+  .data-series-1 {
+    stroke: #8884d8; /* Couleur pour la première série de données */
+  }
+  
+  .data-series-2 {
+    stroke: #82ca9d; /* Couleur pour la deuxième série de données */
+  }
