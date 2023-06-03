@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaTools } from 'react-icons/fa';
-//import construction from '../constructions/construction.jpg';
+import './ErrorBoundary.css';
+import construction from './../icones/construction.jpg';
 
-class ErrorBoundary extends React.Component {
+class UnderConstructionPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -16,62 +17,23 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={styles.errorContainer}>
-          <h1>Oops, something went wrong.</h1>
+        <div className="error-container">
+          <h1>Oops, quelque chose s'est mal passé.</h1>
         </div>
       );
     }
     return (
-      <div style={styles.container}>
-        <FaTools style={styles.icon} />
-        <div style={styles.content}>
-          <h1 style={styles.title}>Page en cours de construction</h1>
-          <p style={styles.text}>Nous travaillons sur cette page et elle sera bientôt disponible.</p>
-          <p style={styles.text}>Merci de votre patience !</p>
-        
+      <div className="page-container">
+        <div className="content">
+        <img src={construction} alt="Logo de la société" className="image" style={{ width: '600px', height: 'auto' }} />
+  
+          <p className="text">Nous travaillons sur cette page et elle sera bientôt disponible.</p>
+          <p className="text">Merci de votre patience !</p>
+         
         </div>
       </div>
     );
   }
 }
 
-const styles = {
-  container: {
-    textAlign: 'center',
-    marginBottom: '10px',
-    marginTop: '20px',
-  },
-  icon: {
-    fontSize: '48px',
-    marginBottom: '10px',
-    color: 'blue',
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-    color: 'red',
-    textAlign: 'left',
-  },
-  text: {
-    fontSize: '18px',
-    marginBottom: '5px',
-  },
-  errorContainer: {
-    textAlign: 'center',
-    marginTop: '20px',
-    color: 'red',
-  },
-  image: {
-    width: '300px', // Largeur de l'image
-    height: 'auto', // Hauteur automatique en conservant les proportions
-    marginTop: '20px',
-  },
-};
-
-export default ErrorBoundary;
+export default UnderConstructionPage;

@@ -89,7 +89,7 @@ export default function PersistentDrawerLeft() {
 
         <Main open={open}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column' }}>
-            <Typography variant="h2" color="inherit" noWrap style={{ marginBottom: '16px', textAlign: 'center', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '20px', color: '#1D419F' }}>
+            <Typography variant="h2" color="inherit" noWrap style={{ marginBottom: '16px', textAlign: 'center', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '20px', color: '#8696FE;' }}>
               <br/>
               <br/>
             <SearchBar className="custom-searchbar" />  
