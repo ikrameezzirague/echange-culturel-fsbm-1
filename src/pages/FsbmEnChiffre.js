@@ -6,8 +6,57 @@ import Typography from '@mui/material/Typography';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { PieChart, Pie, Cell, Legend as RechartsLegend, LineChart, Line } from 'recharts';
 import './FsbmEnChiffre.css';
-import Navbar from './../composants/Navbar';
+import logo_fsbm from './../établissements/logo_fsbm.png'
 
+import Navbar from './../composants/Navbar';
+import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+
+function ContactInfo() {
+  return (
+    <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        {/* Add the logo_fsbm image on the left */}
+        <img src={logo_fsbm} alt="logo_fsbm" style={{ width: '250px', height: '150px' }} />
+        <Typography variant="body1" gutterBottom style={{ color: '#1D419F', fontSize: 'arial', fontWeight: 'bold' }}>
+          La Faculté des Sciences Ben M'Sick a pour mission de former des étudiants compétents, capables de mettre leurs connaissances et leur savoir-faire au service d'un environnement économique et social de plus en plus exigeant, complexe et imprévisible.
+        </Typography>
+      </Box>
+
+      {/* Rest of the contact info */}
+      <Typography variant="h6" gutterBottom style={{ color: 'blue', marginTop: '20px' }}>
+        Contactez nous
+      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <EmailIcon />
+        <Typography variant="body1" gutterBottom>
+          fsbmcontact@gmail.com
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <FacebookIcon />
+        <Typography variant="body1" gutterBottom>
+        /faculté ben M'sik
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <LinkedInIcon />
+        <Typography variant="body1" gutterBottom>
+          /benM'sik
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <LocationOnIcon />
+        <Typography variant="body1" gutterBottom>
+          Faculté des Sciences Ben M'Sick Av Driss El Harti Sidi Othmane Casablanca B.P 7955.
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
 function Dashboard() {
   const theme = useTheme();
   const data = [
@@ -208,7 +257,14 @@ function Dashboard() {
                 <Line type="monotone" dataKey="Licence" stroke="#82ca9d" />
                 <Line type="monotone" dataKey="Master" stroke="#ffc658" />
               </LineChart>
-          
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom style={{ color: 'blue' }}>
+                Contact de la faculté
+              </Typography>
+              <ContactInfo />
             </Box>
           </Grid>
         </Grid>

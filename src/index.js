@@ -53,8 +53,8 @@ const router = createBrowserRouter([
     element: <FAQ/>,
    },
    {
-    path: "partenaireAcademique",
-    element: <partenaireAcademique/>,
+    path: "partenaireAcademique ",
+    element: <partenaireAcademique />,
    },
    {
     path: "partenaireIndustriel",
