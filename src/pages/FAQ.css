@@ -1,51 +1,48 @@
+/* FAQ.css */
+
 .faq-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.faq-content {
-  width: 100%;
-  max-width: 800px;
+  background-color: #f5f5f5; /* Add your desired background color here */
 }
 
 .faq-heading {
-
-  font-size: 24px;
-  margin-bottom: 20px;
+  color: #333; /* Change the color of the heading text */
 }
-.faq-heading {
-  color: blue; /* Couleur du texte en bleu */
-  margin-left: 20px; /* Décalage vers la gauche */
-}
-
 
 .faq-item {
-  margin-bottom: 20px;
+  background-color: #fff; /* Change the background color of each FAQ item */
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-  font-size: 18px;
+}
+
+.faq-question span {
   font-weight: bold;
-  margin-bottom: 10px;
+  color: #555; /* Change the color of the question text */
 }
 
 .faq-answer {
-  font-size: 16px;
-  line-height: 1.5;
-  white-space: pre-wrap;
-  margin-top: 5px;
-}
-.faq-question {
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-left: 100px; /* Ajout de la marge à gauche */
+  margin-top: 10px;
+  color: #777; /* Change the color of the answer text */
 }
 
-.faq-container {
-  margin-left: 100px; /* Ajout de la marge à gauche */
+.faq-question svg {
+  font-size: 18px;
+  color: #777; /* Change the color of the plus/minus icons */
+}
+
+.faq-question:hover svg {
+  color: #1D419F ; /* Change the color of the plus/minus icons on hover */
+}
+/* FAQ.css */
+
+.faq-heading {
+  color: #8696FE;
+  text-align: center; /* Replace #ff0000 with your desired color code */
 }

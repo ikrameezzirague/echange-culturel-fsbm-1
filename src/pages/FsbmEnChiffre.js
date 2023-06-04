@@ -1,171 +1,217 @@
-import * as React from 'react';
+import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Navbar from './../composants/Navbar';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import Scrollbar from 'react-scrollbar';
+import { PieChart, Pie, Cell, Legend as RechartsLegend, LineChart, Line } from 'recharts';
 import './FsbmEnChiffre.css';
-
-const data = [
-  { name: 'Licence', étudiants: 1200 },
-  { name: 'Master', étudiants: 800 },
-  { name: 'LP', étudiants: 300 },
-];
+import Navbar from './../composants/Navbar';
 
 function Dashboard() {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = 2;
+  const data = [
+    { name: 'Femmes', value: 105 },
+    { name: 'Hommes', value: 167 },
+  ];
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
-  };
+  const filieresData = [
+    { filiere: 'Licence', nombre: 9213 },
+    { filiere: 'Master', nombre: 1154 },
+    { filiere: 'Doctorant', nombre: 597 },
+    { filiere: 'LP', nombre: 41 },
+  ];
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps);
-  };
+  const laureatesData = [
+    { year: 0, DEUG: 879, Licence: 543, Master: 234 },
+    { year: 2022, DEUG: 979, Licence: 684, Master: 354 },
+  ];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Navbar />
-        <Button disabled={activeStep === 0} onClick={handleBack}>
-          <KeyboardArrowLeft />
-        </Button>
-        <Scrollbar style={{ width: '100%', height: 'calc(100vh - 64px)' }} horizontal={true}>
-        
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Typography variant="h5" gutterBottom>
-                Statistiques mensuelles
+
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Box sx={{ p: 2, backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h5" gutterBottom style={{ color: 'blue' }}>
+                Statistiques annuelles
               </Typography>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre d'étudiants
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                  11,005
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de professeurs
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                  272
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de filières licence
-               </Typography>
-                <Typography variant="h4" gutterBottom>
-                  6
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de filières master
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                  17
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de filières licence professionnelle
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                  2
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper', textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de laboratoires de recherche
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                  16
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h5" gutterBottom>
-                Répartition des étudiants par filière
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre d'étudiants
               </Typography>
-            </Grid>
-            <Grid item xs={12}>
+              <Typography variant="h4" gutterBottom className="red-number">
+                11,005
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre de professeurs
+              </Typography>
+              <Typography variant="h4" gutterBottom className="red-number">
+                272
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre de filières licence
+              </Typography>
+              <Typography variant="h4" gutterBottom className="red-number">
+                6
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre de filières master
+              </Typography>
+              <Typography variant="h4" gutterBottom className="red-number">
+                17
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre de filières licence professionnelle
+              </Typography>
+              <Typography variant="h4" gutterBottom className="red-number">
+                2
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom>
+                Nombre de laboratoires de recherche
+              </Typography>
+              <Typography variant="h4" gutterBottom className="red-number">
+                15
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6} lg={8}>
+            <Box sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom style={{ color: 'blue' }}>
+                Nombre d'étudiants par Niveau
+              </Typography>
+
               <BarChart
-                width={1000}
-                height={300}
-                data={data}
+                width={700}
+                height={400}
+                data={filieresData}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="filiere" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="étudiants" fill="#888" />
+                <Bar dataKey="nombre" fill={theme.palette.primary.main} />
               </BarChart>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h5" gutterBottom>
-                Carte de la faculté de Sciences Ben M'Sik
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              {/* Remplacez le contenu de cette div par votre carte */}
-              <div>Carte de la faculté de Sciences Ben M'Sik</div>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h5" gutterBottom>
-                Informations supplémentaires
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre d'étudiants
-                </Typography>
-                <ul>
-                  <li>Licence: 1200</li>
-                  <li>Master: 800</li>
-                  <li>LP: 300</li>
-                </ul>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <Box sx={{ p: 2, bgcolor: 'background.paper' }}>
-                <Typography variant="h6" gutterBottom>
-                  Nombre de professeurs
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  272
-                </Typography>
-              </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Scrollbar>
-        <Button disabled={activeStep === maxSteps - 1} onClick={handleNext}>
-          <KeyboardArrowRight />
-        </Button>
+          <Grid item xs={12} md={6} lg={4}>
+            <Box sx={{ p: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+              <Typography variant="h6" gutterBottom style={{ color: 'blue' }}>
+                Répartition des professeurs selon le sexe
+              </Typography>
+              <PieChart width={400} height={300}>
+                <Pie
+                  data={data}
+                  innerRadius={60}
+                  outerRadius={80}
+                  dataKey="value"
+                  label={({ cx, cy, midAngle, innerRadius, outerRadius, value, index }) => {
+                    const percentage = ((value / 272) * 100).toFixed(1);
+                    const label = `${data[index].name} ${percentage}%`;
+
+                    const lines = label.split(' ');
+                    return (
+                      <text
+                        x={cx}
+                        y={cy}
+                        fill={theme.palette.text.primary}
+                        textAnchor={cx > 200 ? 'start' : 'end'}
+                        dominantBaseline="central"
+                      >
+                        {`${data[index].name} ${percentage}%`}
+                      </text>
+                    );
+                  }}
+                >
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={index}
+                      fill={entry.name === 'Femmes' ? '#FFC0CB' : '#8884d8'}
+                    />
+                  ))}
+                </Pie>
+                <RechartsLegend align="right" verticalAlign="middle" layout="vertical" />
+              </PieChart>
+              <table className="profs-table">
+                <tbody>
+                  <tr>
+                    <td className="header">Grades</td>
+                    <td className="header">PES</td>
+                    <td className="header">PH</td>
+                    <td className="header">PESA</td>
+                    <td className="header">TOTAL</td>
+                  </tr>
+                  <tr>
+                    <td className="header">Nombre de professeurs</td>
+                    <td className="number" style={{ color: '#1D419F' }}>
+                      138
+                    </td>
+                    <td className="number" style={{ color: '#1D419F' }}>
+                      32
+                    </td>
+                    <td className="number" style={{ color: '#1D419F' }}>
+                      102
+                    </td>
+                    <td className="number" style={{ color: '#1D419F' }}>
+                      272
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </Box>
+              
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom style={{ color: 'blue' }}>
+                Nombre de lauréats par Niveau
+              </Typography>
+              <LineChart
+                width={800}
+                height={400}
+                data={laureatesData}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="year" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="DEUG" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="Licence" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="Master" stroke="#ffc658" />
+              </LineChart>
+          
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
