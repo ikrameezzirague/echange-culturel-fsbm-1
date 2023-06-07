@@ -185,7 +185,7 @@ function Dashboard() {
                     const percentage = ((value / 272) * 100).toFixed(1);
                     const label = `${data[index].name} ${percentage}%`;
 
-                    const lines = label.split(' ');
+                    const lines = label.split('| ');
                     return (
                       <text
                         x={cx}
@@ -202,7 +202,7 @@ function Dashboard() {
                   {data.map((entry, index) => (
                     <Cell
                       key={index}
-                      fill={entry.name === 'Femmes' ? '#FFC0CB' : '#8884d8'}
+                      fill={entry.name === 'Femmes' ? '#F266AB' : '#8884d8'}
                     />
                   ))}
                 </Pie>
