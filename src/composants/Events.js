@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Events.css';
 
-
 const Event = ({ date, title, description, location, isConfirmed, onConfirm }) => {
   const handleConfirm = () => {
     onConfirm();
@@ -9,7 +8,6 @@ const Event = ({ date, title, description, location, isConfirmed, onConfirm }) =
 
   return (
     <div className={`event ${isConfirmed ? 'event-confirmed' : ''}`}>
-
       <div className="event-details">
         <h3 className="event-title">{title}</h3>
         <div className="event-info">
@@ -74,6 +72,7 @@ const CombinedComponent = () => {
       isConfirmed: false,
     },
   ]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleConfirm = (eventId) => {
     const updatedEvents = events.map((event) => {
@@ -85,11 +84,23 @@ const CombinedComponent = () => {
     setEvents(updatedEvents);
   };
 
+  const filteredEvents = events.filter((event) =>
+    event.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="combined-container">
-   
+      <div className="search-container">
+      <input
+  type="text"
+  placeholder="Search events..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="search-input"
+/>
+      </div>
       <div className="event-list">
-        {events.map((event, index) => (
+        {filteredEvents.map((event, index) => (
           <Event
             key={event.id}
             title={event.title}
